@@ -1,0 +1,53 @@
+# Euron Code (local memory and findings; rules and commands stay in git)
+.euron/cache/
+.euron/knowledge/
+.euron/security/
+.euron/settings.local.json
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+credentials.json
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Python and uv
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Tests, coverage and type-checker caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.pyright/
+.tox/
+
+# Local databases and runtime files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
