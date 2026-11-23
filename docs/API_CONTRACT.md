@@ -8,6 +8,8 @@ This document is the shared HTTP agreement for backend and frontend work.
   centralized validation errors, and safe unexpected-error responses.
 - **Implemented internally in Phase 2:** shared domain/read schemas, normalized
   Evidence, and persistence contracts. Phase 2 adds no public HTTP routes.
+- **Implemented internally in Phase 4:** provider-neutral LLM, embedding,
+  vector, graph, cache, and session boundaries. Phase 4 adds no public routes.
 - **Contracted for later phases:** versioned research, events, documents, graph,
   and enterprise browse APIs. These routes are not implemented yet.
 

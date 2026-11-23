@@ -1,14 +1,23 @@
 # NovaEnterprise
 
 NovaEnterprise is an enterprise knowledge and decision-intelligence platform.
-The repository currently implements the Phase 1 runtime foundation and the
-Phase 2 shared-schema and persistence foundation: a repeatable Python workspace,
-a thin FastAPI shell, shared domain and Evidence contracts, tenant-aware
-SQLAlchemy models and repositories, migrations, RLS policy SQL, deterministic
-sample data, structured logging, safe errors, and offline tests.
+The repository currently implements the Phase 1 runtime foundation, Phase 2
+schemas and persistence, and Phase 4 provider/storage abstractions. It includes
+a thin FastAPI shell, tenant-aware relational data, deterministic LLM and
+embedding providers, tenant-scoped memory vector and graph stores, and a local
+cache/session facade.
 
-Retrieval, agents, memory services, new business APIs, the frontend, and
-containers described in `docs/` remain later-phase targets.
+Qdrant, Neo4j, Redis, and real AI providers are optional adapters and are not
+required by the offline test path. Retrieval workflows, agents, business APIs,
+the frontend, and containers described in `docs/` remain later-phase targets.
+
+## Provider defaults
+
+The safe local configuration is `LLM_PROVIDER=fake`,
+`EMBEDDING_PROVIDER=fake`, `VECTOR_STORE=memory`, `GRAPH_STORE=memory`, and
+`CACHE_BACKEND=memory`. These implementations are deterministic and require no
+network, API key, or external service. Real providers are selected through
+settings and constructed only with their optional SDK/client configuration.
 
 ## Requirements
 

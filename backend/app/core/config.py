@@ -3,7 +3,7 @@
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import field_validator
+from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 SUPPORTED_LOG_LEVELS = {"CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"}
@@ -27,6 +27,35 @@ class Settings(BaseSettings):
     api_prefix: str = "/api/v1"
     database_url: str = "sqlite:///./data/enterprise.db"
     default_tenant_id: str = "novaenterprise-demo"
+    llm_provider: Literal[
+        "fake",
+        "openai",
+        "anthropic",
+        "google",
+        "groq",
+        "mistral",
+        "cohere",
+        "deepseek",
+        "azure_openai",
+    ] = "fake"
+    llm_model: str = "fake-v1"
+    embedding_provider: Literal["fake", "openai", "google", "cohere", "mistral", "azure_openai"] = (
+        "fake"
+    )
+    embedding_model: str = "fake-embedding-v1"
+    embedding_dimension: int = Field(default=32, ge=1, le=4096)
+    vector_store: Literal["memory", "qdrant"] = "memory"
+    qdrant_url: str = "http://localhost:6333"
+    qdrant_collection: str = "novaenterprise-documents"
+    qdrant_api_key: str | None = None
+    graph_store: Literal["memory", "neo4j"] = "memory"
+    neo4j_uri: str = "bolt://localhost:7687"
+    neo4j_database: str = "neo4j"
+    neo4j_username: str | None = None
+    neo4j_password: str | None = None
+    cache_backend: Literal["memory", "redis"] = "memory"
+    redis_url: str = "redis://localhost:6379/0"
+    session_ttl_seconds: int = Field(default=3600, ge=1, le=2_592_000)
 
     @field_validator("log_level")
     @classmethod
@@ -43,6 +72,12 @@ class Settings(BaseSettings):
         if not normalized.startswith("/"):
             raise ValueError("api_prefix must start with '/'")
         return normalized
+
+    @model_validator(mode="after")
+    def validate_neo4j_credentials(self) -> "Settings":
+        if bool(self.neo4j_username) != bool(self.neo4j_password):
+            raise ValueError("NOVA_NEO4J_USERNAME and NOVA_NEO4J_PASSWORD must be set together")
+        return self
 
 
 @lru_cache(maxsize=1)
