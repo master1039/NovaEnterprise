@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phase 1 is merged and verified. Phase 2 is implemented and verified on the current feature branch; its rows remain `Pending ❌` until the pull request merges, as required by the status rules below.
+> Phases 1 and 2 are merged and verified. Phase 3 is implemented and verified on the current feature branch; its rows remain `Pending ❌` until the pull request merges, as required by the status rules below.
 
 **Branch convention:** `feature/<repo-name>` (one feature branch per sub-task; open each PR against the repository's integration branch)
 **Status:** `Pending ❌` · `Completed ✅`
@@ -33,10 +33,10 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P2-1 · Domain enums, API schemas, and normalized `Evidence` contract | `feature/domain-evidence-schemas` | Pending ❌ |
-| P2-2 · SQLAlchemy models, database session, migrations, and RLS policies | `feature/database-models-rls` | Pending ❌ |
-| P2-3 · Repository layer for records, documents, sessions, events, and audit data | `feature/repository-layer` | Pending ❌ |
-| P2-4 · Canonical enterprise sample data and deterministic seed service | `feature/sample-data-seeding` | Pending ❌ |
+| P2-1 · Domain enums, API schemas, and normalized `Evidence` contract | `feature/domain-evidence-schemas` | Completed ✅ |
+| P2-2 · SQLAlchemy models, database session, migrations, and RLS policies | `feature/database-models-rls` | Completed ✅ |
+| P2-3 · Repository layer for records, documents, sessions, events, and audit data | `feature/repository-layer` | Completed ✅ |
+| P2-4 · Canonical enterprise sample data and deterministic seed service | `feature/sample-data-seeding` | Completed ✅ |
 
 ---
 
@@ -279,7 +279,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | Phase | Name | Tasks | Completed |
 |-------|------|------:|----------:|
 | 1 | Runtime foundation and contracts | 4 | 4 |
-| 2 | Shared schemas and persistence | 4 | 0 |
+| 2 | Shared schemas and persistence | 4 | 4 |
 | 3 | Identity, middleware, and safeguards | 4 | 0 |
 | 4 | Provider and storage abstractions | 5 | 0 |
 | 5 | Document ingestion pipeline | 4 | 0 |
@@ -294,7 +294,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 14 | Research and evidence UI | 4 | 0 |
 | 15 | Evaluation and canonical demo | 5 | 0 |
 | 16 | Integrations and delivery | 5 | 0 |
-| **Total** | | **66** | **0** |
+| **Total** | | **66** | **8** |
 
 ---
 

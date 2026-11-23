@@ -8,6 +8,8 @@ This document is the shared HTTP agreement for backend and frontend work.
   centralized validation errors, and safe unexpected-error responses.
 - **Implemented internally in Phase 2:** shared domain/read schemas, normalized
   Evidence, and persistence contracts. Phase 2 adds no public HTTP routes.
+- **Implemented in Phase 3:** local demo login, bearer-token validation, central
+  role enforcement, request correlation, rate limiting, and request auditing.
 - **Contracted for later phases:** versioned research, events, documents, graph,
   and enterprise browse APIs. These routes are not implemented yet.
 
@@ -23,8 +25,8 @@ the backend schema, tests, and frontend type together.
 | Content type | `application/json` unless a documented upload says otherwise |
 | Identifiers | Opaque strings; clients must not parse meaning from them |
 | Dates and times | ISO 8601 strings with timezone information |
-| Request correlation | `X-Request-ID` after Phase 3 introduces middleware |
-| Authentication | Bearer token after Phase 3; absent from Phase 1 routes |
+| Request correlation | Every response carries a validated or generated `X-Request-ID` |
+| Authentication | Bearer JWT for protected routes; system routes stay public |
 | Unknown fields | Clients ignore unknown response fields for forward compatibility |
 | Hidden reasoning | Never returned; expose decisions, evidence, queries, and timings only |
 
@@ -81,7 +83,22 @@ Response `200`:
 ### `GET /openapi.json` and `GET /docs`
 
 FastAPI-generated schema and interactive documentation for implemented routes.
-Phase 1 OpenAPI contains only `/` and `/health/live` as application routes.
+The OpenAPI document also contains the Phase 3 authentication routes below.
+
+## Implemented Phase 3 authentication
+
+### `POST /api/v1/auth/login`
+
+Available only in local and test environments. The deterministic demo accounts
+are `viewer`, `analyst`, and `admin`; each uses `demo-<role>` as its local-only
+password. A successful response contains a bearer access token, expiry in
+seconds, and the user's ID, username, role, and tenant ID.
+
+### `GET /api/v1/auth/me`
+
+Requires a valid bearer token and returns the authenticated user contract.
+Tokens validate their signature, algorithm, issuer, audience, issued-at time,
+expiry, role, and tenant. Production rejects the default local signing secret.
 
 ## Planned research contract
 

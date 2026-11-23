@@ -1,11 +1,11 @@
 # NovaEnterprise
 
 NovaEnterprise is an enterprise knowledge and decision-intelligence platform.
-The repository currently implements the Phase 1 runtime foundation and the
-Phase 2 shared-schema and persistence foundation: a repeatable Python workspace,
-a thin FastAPI shell, shared domain and Evidence contracts, tenant-aware
-SQLAlchemy models and repositories, migrations, RLS policy SQL, deterministic
-sample data, structured logging, safe errors, and offline tests.
+The repository currently implements the first three foundations: a repeatable
+Python/FastAPI runtime, shared schemas and tenant-aware persistence, and an
+identity/security boundary with local demo authentication, central roles,
+request correlation, bounded rate limiting and auditing, content guardrails,
+secret redaction, and destructive-action approvals.
 
 Retrieval, agents, memory services, new business APIs, the frontend, and
 containers described in `docs/` remain later-phase targets.
@@ -50,6 +50,8 @@ Implemented endpoints:
 - `GET /` — service metadata
 - `GET /health/live` — process liveness only
 - `GET /docs` — generated OpenAPI documentation
+- `POST /api/v1/auth/login` — local/test demo login
+- `GET /api/v1/auth/me` — authenticated user details
 
 ## Create and seed the local database
 
