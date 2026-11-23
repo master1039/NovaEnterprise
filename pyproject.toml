@@ -35,6 +35,7 @@ packages = [
     "backend.app.repositories",
     "backend.app.schemas",
     "backend.app.services",
+    "rag",
 ]
 
 [tool.setuptools.package-dir]

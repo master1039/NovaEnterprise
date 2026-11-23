@@ -3,9 +3,9 @@
 ## Repository state
 
 NovaEnterprise is a Python 3.12 enterprise knowledge and decision-intelligence
-platform. Phases 1 and 2 provide the runtime, shared contracts, and relational
-persistence foundation. Treat later-phase content in `docs/` as target design,
-not proof that those features already exist.
+platform. Phases 1, 2, and 4 provide the runtime, shared contracts, relational
+persistence, and replaceable provider/storage foundations. Treat later-phase
+content in `docs/` as target design, not proof that those features already exist.
 
 Current layout:
 
@@ -14,12 +14,14 @@ Current layout:
 - `backend/app/main.py`: FastAPI application factory and runtime entry point.
 - `backend/app/api/`: implemented system and liveness routes.
 - `backend/app/core/`: settings, database/session wiring, JSON logging, and safe errors.
+- `backend/app/core/llm.py`, `embeddings.py`, `cache.py`: provider-neutral AI and cache boundaries.
 - `backend/app/schemas/`: domain enums, seed/read schemas, and normalized evidence.
 - `backend/app/models/`: tenant-aware SQLAlchemy entities.
 - `backend/app/repositories/`: tenant-scoped persistence queries.
 - `backend/app/services/seed.py`: deterministic, idempotent demo-data loader.
 - `database/`: Alembic migrations and PostgreSQL RLS policy artifact.
 - `sample_data/`: canonical enterprise JSON records and Markdown documents.
+- `rag/`: tenant-scoped vector and graph store protocols with memory and optional real adapters.
 - `tests/`: deterministic offline API, unit, migration, repository, and seed tests.
 - `docs/00-problem.md`: problem statement and canonical scenario.
 - `docs/01-prd.md`: product requirements and acceptance criteria.
