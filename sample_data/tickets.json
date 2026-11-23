@@ -1,0 +1,17 @@
+[
+  {"id":"ticket-001","title":"Payment timeout report","description":"Acme observed payment timeouts.","customer_id":"cust-acme","project_id":"proj-reliability","assigned_team_id":"team-payments","status":"resolved","priority":"urgent"},
+  {"id":"ticket-002","title":"Duplicate callbacks","description":"Globex received duplicates.","customer_id":"cust-globex","project_id":"proj-reliability","assigned_team_id":"team-payments","status":"resolved","priority":"high"},
+  {"id":"ticket-003","title":"Token rejection","description":"Wayne tokens failed.","customer_id":"cust-wayne","project_id":"proj-zero-trust","assigned_team_id":"team-identity","status":"resolved","priority":"high"},
+  {"id":"ticket-004","title":"Data delay","description":"Hooli reports delayed data.","customer_id":"cust-hooli","project_id":"proj-lakehouse","assigned_team_id":"team-data","status":"resolved","priority":"medium"},
+  {"id":"ticket-005","title":"Webhook lag","description":"Initech webhooks arrived late.","customer_id":"cust-initech","project_id":"proj-observability","assigned_team_id":"team-sre","status":"resolved","priority":"high"},
+  {"id":"ticket-006","title":"Dashboard totals","description":"Soylent sees stale totals.","customer_id":"cust-soylent","project_id":"proj-metrics","assigned_team_id":"team-analytics","status":"resolved","priority":"medium"},
+  {"id":"ticket-007","title":"Invoice delay","description":"Acme invoice was late.","customer_id":"cust-acme","project_id":"proj-reliability","assigned_team_id":"team-payments","status":"in_progress","priority":"high"},
+  {"id":"ticket-008","title":"Portal login loop","description":"Umbrella users cannot log in.","customer_id":"cust-umbrella","project_id":"proj-voice","assigned_team_id":"team-success","status":"resolved","priority":"high"},
+  {"id":"ticket-009","title":"Indexing lag","description":"Stark documents missing from search.","customer_id":"cust-stark","project_id":"proj-lakehouse","assigned_team_id":"team-data","status":"resolved","priority":"medium"},
+  {"id":"ticket-010","title":"MFA enrollment","description":"Wonka cannot enroll MFA.","customer_id":"cust-wonka","project_id":"proj-zero-trust","assigned_team_id":"team-identity","status":"resolved","priority":"high"},
+  {"id":"ticket-011","title":"Pipeline retry","description":"Globex data is delayed.","customer_id":"cust-globex","project_id":"proj-lakehouse","assigned_team_id":"team-data","status":"open","priority":"urgent"},
+  {"id":"ticket-012","title":"Payment latency","description":"Stark reports slow checkout.","customer_id":"cust-stark","project_id":"proj-reliability","assigned_team_id":"team-payments","status":"resolved","priority":"high"},
+  {"id":"ticket-013","title":"Export question","description":"Vehement requests an export explanation.","customer_id":"cust-vehement","project_id":"proj-voice","assigned_team_id":"team-success","status":"open","priority":"low"},
+  {"id":"ticket-014","title":"Metrics definition","description":"Define payment success metric.","customer_id":"cust-initech","project_id":"proj-metrics","assigned_team_id":"team-analytics","status":"in_progress","priority":"medium"},
+  {"id":"ticket-015","title":"Reliability review","description":"Quarterly reliability review request.","customer_id":"cust-umbrella","project_id":"proj-observability","assigned_team_id":"team-sre","status":"open","priority":"low"}
+]

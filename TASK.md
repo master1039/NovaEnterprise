@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phase 1 is implemented and verified on the current feature branch. Its rows remain `Pending ❌` until the pull request merges, as required by the status rules below.
+> Phase 1 is merged and verified. Phase 2 is implemented and verified on the current feature branch; its rows remain `Pending ❌` until the pull request merges, as required by the status rules below.
 
 **Branch convention:** `feature/<repo-name>` (one feature branch per sub-task; open each PR against the repository's integration branch)
 **Status:** `Pending ❌` · `Completed ✅`
@@ -19,10 +19,10 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P1-1 · Python workspace, dependencies, environment template, and Make targets | `feature/runtime-workspace` | Pending ❌ |
-| P1-2 · FastAPI app factory, settings, structured logging, and exception handling | `feature/backend-runtime-core` | Pending ❌ |
-| P1-3 · Offline pytest harness, fixtures, and deterministic test configuration | `feature/test-harness-offline` | Pending ❌ |
-| P1-4 · API contract and frontend-assumption documents | `feature/api-contract-docs` | Pending ❌ |
+| P1-1 · Python workspace, dependencies, environment template, and Make targets | `feature/runtime-workspace` | Completed ✅ |
+| P1-2 · FastAPI app factory, settings, structured logging, and exception handling | `feature/backend-runtime-core` | Completed ✅ |
+| P1-3 · Offline pytest harness, fixtures, and deterministic test configuration | `feature/test-harness-offline` | Completed ✅ |
+| P1-4 · API contract and frontend-assumption documents | `feature/api-contract-docs` | Completed ✅ |
 
 ---
 
@@ -278,7 +278,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 
 | Phase | Name | Tasks | Completed |
 |-------|------|------:|----------:|
-| 1 | Runtime foundation and contracts | 4 | 0 |
+| 1 | Runtime foundation and contracts | 4 | 4 |
 | 2 | Shared schemas and persistence | 4 | 0 |
 | 3 | Identity, middleware, and safeguards | 4 | 0 |
 | 4 | Provider and storage abstractions | 5 | 0 |

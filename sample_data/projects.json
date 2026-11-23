@@ -1,0 +1,8 @@
+[
+  {"id":"proj-reliability","name":"Payments Reliability","description":"Improve payment availability","owner_team_id":"team-payments","status":"active"},
+  {"id":"proj-zero-trust","name":"Zero Trust Identity","description":"Harden identity controls","owner_team_id":"team-identity","status":"active"},
+  {"id":"proj-lakehouse","name":"Lakehouse Modernization","description":"Modernize analytics storage","owner_team_id":"team-data","status":"active"},
+  {"id":"proj-voice","name":"Customer Voice","description":"Improve feedback loops","owner_team_id":"team-success","status":"planned"},
+  {"id":"proj-observability","name":"Unified Observability","description":"Standardize telemetry","owner_team_id":"team-sre","status":"active"},
+  {"id":"proj-metrics","name":"Trusted Metrics","description":"Standardize business metrics","owner_team_id":"team-analytics","status":"completed"}
+]

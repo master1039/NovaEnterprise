@@ -6,6 +6,8 @@ This document is the shared HTTP agreement for backend and frontend work.
 
 - **Implemented in Phase 1:** service metadata, liveness, OpenAPI generation,
   centralized validation errors, and safe unexpected-error responses.
+- **Implemented internally in Phase 2:** shared domain/read schemas, normalized
+  Evidence, and persistence contracts. Phase 2 adds no public HTTP routes.
 - **Contracted for later phases:** versioned research, events, documents, graph,
   and enterprise browse APIs. These routes are not implemented yet.
 

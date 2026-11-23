@@ -1,12 +1,14 @@
 # NovaEnterprise
 
 NovaEnterprise is an enterprise knowledge and decision-intelligence platform.
-The repository currently implements the Phase 1 runtime foundation: a
-repeatable Python workspace, a thin FastAPI shell, structured JSON logging,
-safe error responses, offline tests, and written API/frontend contracts.
+The repository currently implements the Phase 1 runtime foundation and the
+Phase 2 shared-schema and persistence foundation: a repeatable Python workspace,
+a thin FastAPI shell, shared domain and Evidence contracts, tenant-aware
+SQLAlchemy models and repositories, migrations, RLS policy SQL, deterministic
+sample data, structured logging, safe errors, and offline tests.
 
-The retrieval, persistence, agent, memory, frontend, and container capabilities
-described in `docs/` are later-phase targets and are not implemented yet.
+Retrieval, agents, memory services, new business APIs, the frontend, and
+containers described in `docs/` remain later-phase targets.
 
 ## Requirements
 
@@ -49,6 +51,23 @@ Implemented endpoints:
 - `GET /health/live` — process liveness only
 - `GET /docs` — generated OpenAPI documentation
 
+## Create and seed the local database
+
+```powershell
+make db-upgrade
+make seed
+```
+
+PowerShell alternative:
+
+```powershell
+.\.venv\Scripts\python.exe -m alembic upgrade head
+.\.venv\Scripts\python.exe -m backend.app.services.seed
+```
+
+The default database is `data/enterprise.db`. Re-running the seed command
+updates the same stable records without duplicating them.
+
 ## Verify
 
 ```powershell
@@ -63,8 +82,9 @@ PowerShell alternative:
 .\.venv\Scripts\python.exe -m pytest
 ```
 
-The test harness blocks external network access. Phase 1 checks require no API
-key, database, container, or cloud service.
+The test harness blocks external network access and uses isolated SQLite
+databases. Checks require no API key, container, cloud service, or running
+database server.
 
 ## Project guidance
 
@@ -73,4 +93,4 @@ key, database, container, or cloud service.
 - `docs/00-problem.md`, `docs/01-prd.md`, and `docs/02-hld.md` describe the
   business problem, requirements, and target architecture.
 - `docs/API_CONTRACT.md` and `docs/FRONTEND_ASSUMPTIONS.md` distinguish current
-  Phase 1 behavior from later promised interfaces.
+  implemented HTTP behavior from later promised interfaces.

@@ -7,9 +7,12 @@ from collections.abc import Generator
 
 import pytest
 from fastapi.testclient import TestClient
+from sqlalchemy.orm import Session
 
 from backend.app.core.config import get_settings
+from backend.app.core.database import create_database_engine, create_session_factory
 from backend.app.main import create_app
+from backend.app.models import Base
 
 
 @pytest.fixture(autouse=True)
@@ -45,3 +48,16 @@ def client() -> Generator[TestClient, None, None]:
     app = create_app(get_settings())
     with TestClient(app, raise_server_exceptions=False) as test_client:
         yield test_client
+
+
+@pytest.fixture
+def db_session() -> Generator[Session, None, None]:
+    """Return an isolated SQLite database with the complete relational schema."""
+
+    engine = create_database_engine("sqlite:///:memory:")
+    Base.metadata.create_all(engine)
+    factory = create_session_factory(engine)
+    with factory() as session:
+        yield session
+    Base.metadata.drop_all(engine)
+    engine.dispose()

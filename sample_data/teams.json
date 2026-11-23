@@ -1,0 +1,8 @@
+[
+  {"id":"team-payments","name":"Payments Platform","description":"Payments APIs and processing"},
+  {"id":"team-identity","name":"Identity","description":"Authentication and identity"},
+  {"id":"team-data","name":"Data Platform","description":"Data pipelines and storage"},
+  {"id":"team-success","name":"Customer Success","description":"Customer operations"},
+  {"id":"team-sre","name":"SRE","description":"Reliability and incident response"},
+  {"id":"team-analytics","name":"Analytics","description":"Reporting and insights"}
+]

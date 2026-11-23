@@ -10,7 +10,7 @@ SUPPORTED_LOG_LEVELS = {"CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"}
 
 
 class Settings(BaseSettings):
-    """Phase 1 runtime settings with safe local defaults."""
+    """Runtime and persistence settings with safe local defaults."""
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -25,6 +25,8 @@ class Settings(BaseSettings):
     debug: bool = False
     log_level: str = "INFO"
     api_prefix: str = "/api/v1"
+    database_url: str = "sqlite:///./data/enterprise.db"
+    default_tenant_id: str = "novaenterprise-demo"
 
     @field_validator("log_level")
     @classmethod

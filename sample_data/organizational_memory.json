@@ -1,0 +1,5 @@
+[
+  {"id":"memory-fiscal-calendar","key":"fiscal_calendar","value":"NovaEnterprise quarters follow calendar quarters in 2026.","source":"Finance policy"},
+  {"id":"memory-severity","key":"sev1_response","value":"SEV1 incidents require immediate SRE and owning-team response.","source":"Incident policy"},
+  {"id":"memory-citations","key":"citation_policy","value":"Every substantive research claim requires resolvable evidence.","source":"Research policy"}
+]

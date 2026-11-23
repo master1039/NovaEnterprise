@@ -12,7 +12,7 @@ NovaEnterprise — Enterprise Knowledge and Decision Intelligence Platform
 | Default integration branch | `development` |
 | Long-lived branches | `development`, `testing`, `master` |
 | Task tracker | `TASK.md` — one `feature/<name>` branch per sub-task |
-| Current state | Phase 1 runtime foundation complete; later application phases remain pending |
+| Current state | Phase 1 merged; Phase 2 persistence foundation implemented on its feature branch |
 
 This guide defines how code moves through NovaEnterprise. Feature work branches
 from `development` and returns through a pull request. `testing` and `master` are
@@ -161,8 +161,8 @@ Choose HTTPS or SSH and complete authentication outside the repository.
 
 ### Current local runtime
 
-Phase 1 provides the Python workspace, FastAPI shell, offline tests, and quality
-commands:
+Phases 1 and 2 provide the Python workspace, FastAPI shell, relational
+persistence, deterministic sample data, offline tests, and quality commands:
 
 ```powershell
 python -m venv .venv
@@ -172,10 +172,13 @@ Copy-Item .env.example .env
 .\.venv\Scripts\python.exe -m ruff check .
 .\.venv\Scripts\python.exe -m ruff format --check .
 .\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m alembic upgrade head
+.\.venv\Scripts\python.exe -m backend.app.services.seed
 ```
 
-With GNU Make installed, use `make setup`, `make run`, and `make check`. The
-frontend and multi-service stack remain later-phase work.
+With GNU Make installed, use `make setup`, `make run`, `make check`,
+`make db-upgrade`, and `make seed`. The frontend and multi-service stack remain
+later-phase work.
 
 ## 4. Daily feature workflow
 
@@ -186,11 +189,11 @@ Follow this cycle for every row in `TASK.md`.
 Read the phase's `Depends on` and `Merge order` notes. Confirm every required
 predecessor is already merged into `development`.
 
-Example next pending task after Phase 1:
+Example next pending task after the Phase 2 branch merges:
 
 ```text
-P2-1 · Domain enums, API schemas, and normalized Evidence contract
-Branch: feature/domain-evidence-schemas
+P3-1 · JWT validation, role model, and central require_role enforcement
+Branch: feature/auth-rbac
 ```
 
 ### Step 2 — Sync `development`

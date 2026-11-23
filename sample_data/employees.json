@@ -1,0 +1,22 @@
+[
+  {"id":"emp-01","name":"Asha Rao","title":"Engineering Manager","email":"asha@nova.example","team_id":"team-payments"},
+  {"id":"emp-02","name":"Ben Cole","title":"Staff Engineer","email":"ben@nova.example","team_id":"team-payments"},
+  {"id":"emp-03","name":"Chen Li","title":"Backend Engineer","email":"chen@nova.example","team_id":"team-payments"},
+  {"id":"emp-04","name":"Dana Kim","title":"Engineering Manager","email":"dana@nova.example","team_id":"team-identity"},
+  {"id":"emp-05","name":"Eli Moss","title":"Security Engineer","email":"eli@nova.example","team_id":"team-identity"},
+  {"id":"emp-06","name":"Fatima Noor","title":"Backend Engineer","email":"fatima@nova.example","team_id":"team-identity"},
+  {"id":"emp-07","name":"Gabe Stone","title":"Engineering Manager","email":"gabe@nova.example","team_id":"team-data"},
+  {"id":"emp-08","name":"Hana Park","title":"Data Engineer","email":"hana@nova.example","team_id":"team-data"},
+  {"id":"emp-09","name":"Ivan Petrov","title":"Data Engineer","email":"ivan@nova.example","team_id":"team-data"},
+  {"id":"emp-10","name":"Jules Martin","title":"Director","email":"jules@nova.example","team_id":"team-success"},
+  {"id":"emp-11","name":"Kira Shah","title":"Customer Engineer","email":"kira@nova.example","team_id":"team-success"},
+  {"id":"emp-12","name":"Leo Grant","title":"Support Analyst","email":"leo@nova.example","team_id":"team-success"},
+  {"id":"emp-13","name":"Maya Singh","title":"SRE Manager","email":"maya@nova.example","team_id":"team-sre"},
+  {"id":"emp-14","name":"Noah Reed","title":"Site Reliability Engineer","email":"noah@nova.example","team_id":"team-sre"},
+  {"id":"emp-15","name":"Omar Aziz","title":"Site Reliability Engineer","email":"omar@nova.example","team_id":"team-sre"},
+  {"id":"emp-16","name":"Priya Das","title":"Analytics Manager","email":"priya@nova.example","team_id":"team-analytics"},
+  {"id":"emp-17","name":"Quinn Bell","title":"Analyst","email":"quinn@nova.example","team_id":"team-analytics"},
+  {"id":"emp-18","name":"Rosa Diaz","title":"Analyst","email":"rosa@nova.example","team_id":"team-analytics"},
+  {"id":"emp-19","name":"Sam Wu","title":"Product Manager","email":"sam@nova.example","team_id":"team-payments"},
+  {"id":"emp-20","name":"Tara Young","title":"Technical Writer","email":"tara@nova.example","team_id":"team-success"}
+]
