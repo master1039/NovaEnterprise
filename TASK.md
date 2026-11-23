@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> The repository is currently an early scaffold. Every item below describes planned work, not existing implementation.
+> Phase 1 is implemented and verified on the current feature branch. Its rows remain `Pending ❌` until the pull request merges, as required by the status rules below.
 
 **Branch convention:** `feature/<repo-name>` (one feature branch per sub-task; open each PR against the repository's integration branch)
 **Status:** `Pending ❌` · `Completed ✅`
