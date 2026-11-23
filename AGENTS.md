@@ -8,14 +8,20 @@ not proof that the described application already exists.
 
 Current layout:
 
-- `main.py`: runnable placeholder entry point.
-- `src/novaenterprise/`: package scaffold; it currently contains `_init__.py`.
+- `main.py`: minimal legacy console entry point.
+- `src/novaenterprise/`: installable package metadata.
+- `backend/app/main.py`: FastAPI application factory and runtime entry point.
+- `backend/app/api/`: implemented system and liveness routes.
+- `backend/app/core/`: settings, JSON logging, and safe exception handling.
+- `tests/`: deterministic offline API and unit tests.
 - `docs/00-problem.md`: problem statement and canonical scenario.
 - `docs/01-prd.md`: product requirements and acceptance criteria.
 - `docs/02-hld.md`: target architecture.
 - `docs/04-claude_folder_str_and_PromptCaching.md`: Claude setup notes.
-- `pyproject.toml`: Python 3.12 project metadata; no dependencies are declared.
-- `requirements.txt`: currently empty.
+- `pyproject.toml`: Python 3.12 build metadata, dependencies, pytest, and Ruff configuration.
+- `requirements.txt`: editable installation with development dependencies.
+- `Makefile`: setup, run, test, lint, format, check, and clean targets.
+- `.env.example`: safe Phase 1 runtime-setting template.
 - `.claude/` and `CLAUDE.md`: Claude-specific setup; keep intact unless asked.
 - `.codex/agents/`: Codex custom agent roles.
 - `.agents/skills/`: reusable Codex workflows.
@@ -25,13 +31,17 @@ Current layout:
 Run from the repository root on Windows PowerShell:
 
 ```powershell
-python main.py
-python -m compileall main.py src
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8001
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
 ```
 
-There is currently no configured build backend, test suite, test dependency, or
-project-specific lint/type-check command. Do not claim those checks ran. When a
-task introduces tooling, document and run only the commands that actually exist.
+When GNU Make is installed, `make setup`, `make run`, `make test`, `make lint`,
+and `make check` wrap the same commands. Use the direct PowerShell equivalents
+on Windows machines without Make.
 
 ## Working conventions
 
