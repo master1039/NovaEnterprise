@@ -51,3 +51,9 @@ htmlcov/
 *.sqlite
 *.sqlite3
 
+# Claude Code local state and setup backups
+/.claude/settings.local.json
+/.claude/agent-calls.jsonl
+/CLAUDE.local.md
+/.claude.bak-*/
+
