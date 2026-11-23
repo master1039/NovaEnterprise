@@ -1,0 +1,10 @@
+[
+  {"id":"adr-101","incident_id":"inc-2031","service_id":"svc-payments","title":"Bound processor retries","summary":"Use exponential backoff, retry budgets, and circuit breakers.","status":"accepted","decided_at":"2026-07-20T12:00:00Z"},
+  {"id":"adr-102","incident_id":"inc-2034","service_id":"svc-payments","title":"Require idempotency keys","summary":"Persist callback idempotency keys for every processor event.","status":"accepted","decided_at":"2026-08-10T12:00:00Z"},
+  {"id":"adr-103","incident_id":"inc-2040","service_id":"svc-payments","title":"Isolate fraud fanout","summary":"Add bounded concurrency and a latency budget.","status":"accepted","decided_at":"2026-09-28T12:00:00Z"},
+  {"id":"adr-104","incident_id":"inc-2012","service_id":"svc-identity","title":"Version signing key cache","summary":"Refresh keys atomically with expiry telemetry.","status":"accepted","decided_at":"2026-04-18T12:00:00Z"},
+  {"id":"adr-105","incident_id":"inc-2015","service_id":"svc-data","title":"Autoscale ingestion workers","summary":"Scale workers from queue depth and age.","status":"accepted","decided_at":"2026-05-12T12:00:00Z"},
+  {"id":"adr-106","incident_id":"inc-2020","service_id":"svc-notifications","title":"Backpressure outbound webhooks","summary":"Use per-provider rate limits and durable queues.","status":"accepted","decided_at":"2026-06-24T12:00:00Z"},
+  {"id":"adr-107","incident_id":"inc-2044","service_id":"svc-billing","title":"Partition invoice batches","summary":"Partition work and cap query execution time.","status":"proposed","decided_at":"2026-10-12T12:00:00Z"},
+  {"id":"adr-108","incident_id":"inc-2052","service_id":"svc-data","title":"Quarantine poison messages","summary":"Move repeated failures to a reviewed dead-letter queue.","status":"accepted","decided_at":"2026-11-20T12:00:00Z"}
+]

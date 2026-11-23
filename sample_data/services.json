@@ -1,0 +1,10 @@
+[
+  {"id":"svc-payments","name":"Payments API","description":"Processes merchant payments","owner_team_id":"team-payments"},
+  {"id":"svc-identity","name":"Identity Service","description":"Authentication and tokens","owner_team_id":"team-identity"},
+  {"id":"svc-data","name":"Data Pipeline","description":"Enterprise data ingestion","owner_team_id":"team-data"},
+  {"id":"svc-analytics","name":"Analytics Dashboard","description":"Customer analytics","owner_team_id":"team-analytics"},
+  {"id":"svc-notifications","name":"Notification Service","description":"Email and webhook delivery","owner_team_id":"team-sre"},
+  {"id":"svc-billing","name":"Billing Engine","description":"Invoices and subscriptions","owner_team_id":"team-payments"},
+  {"id":"svc-portal","name":"Customer Portal","description":"Customer self service","owner_team_id":"team-success"},
+  {"id":"svc-search","name":"Search Service","description":"Enterprise search","owner_team_id":"team-data"}
+]

@@ -2,9 +2,10 @@
 
 ## Repository state
 
-NovaEnterprise is an early Python 3.12 scaffold for a planned enterprise
-knowledge and decision-intelligence platform. Treat `docs/` as target design,
-not proof that the described application already exists.
+NovaEnterprise is a Python 3.12 enterprise knowledge and decision-intelligence
+platform. Phases 1 and 2 provide the runtime, shared contracts, and relational
+persistence foundation. Treat later-phase content in `docs/` as target design,
+not proof that those features already exist.
 
 Current layout:
 
@@ -12,8 +13,14 @@ Current layout:
 - `src/novaenterprise/`: installable package metadata.
 - `backend/app/main.py`: FastAPI application factory and runtime entry point.
 - `backend/app/api/`: implemented system and liveness routes.
-- `backend/app/core/`: settings, JSON logging, and safe exception handling.
-- `tests/`: deterministic offline API and unit tests.
+- `backend/app/core/`: settings, database/session wiring, JSON logging, and safe errors.
+- `backend/app/schemas/`: domain enums, seed/read schemas, and normalized evidence.
+- `backend/app/models/`: tenant-aware SQLAlchemy entities.
+- `backend/app/repositories/`: tenant-scoped persistence queries.
+- `backend/app/services/seed.py`: deterministic, idempotent demo-data loader.
+- `database/`: Alembic migrations and PostgreSQL RLS policy artifact.
+- `sample_data/`: canonical enterprise JSON records and Markdown documents.
+- `tests/`: deterministic offline API, unit, migration, repository, and seed tests.
 - `docs/00-problem.md`: problem statement and canonical scenario.
 - `docs/01-prd.md`: product requirements and acceptance criteria.
 - `docs/02-hld.md`: target architecture.
@@ -21,7 +28,7 @@ Current layout:
 - `pyproject.toml`: Python 3.12 build metadata, dependencies, pytest, and Ruff configuration.
 - `requirements.txt`: editable installation with development dependencies.
 - `Makefile`: setup, run, test, lint, format, check, and clean targets.
-- `.env.example`: safe Phase 1 runtime-setting template.
+- `.env.example`: safe runtime and persistence-setting template.
 - `.claude/` and `CLAUDE.md`: Claude-specific setup; keep intact unless asked.
 - `.codex/agents/`: Codex custom agent roles.
 - `.agents/skills/`: reusable Codex workflows.
@@ -37,10 +44,12 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe -m ruff check .
 .\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m alembic upgrade head
+.\.venv\Scripts\python.exe -m backend.app.services.seed
 ```
 
 When GNU Make is installed, `make setup`, `make run`, `make test`, `make lint`,
-and `make check` wrap the same commands. Use the direct PowerShell equivalents
+`make check`, `make db-upgrade`, and `make seed` wrap the same commands. Use the direct PowerShell equivalents
 on Windows machines without Make.
 
 ## Working conventions

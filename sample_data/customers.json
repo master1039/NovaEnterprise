@@ -1,0 +1,12 @@
+[
+  {"id":"cust-acme","name":"Acme Bank","tier":"enterprise"},
+  {"id":"cust-globex","name":"Globex Retail","tier":"enterprise"},
+  {"id":"cust-initech","name":"Initech","tier":"enterprise"},
+  {"id":"cust-umbrella","name":"Umbrella Health","tier":"enterprise"},
+  {"id":"cust-stark","name":"Stark Industries","tier":"mid-market"},
+  {"id":"cust-wayne","name":"Wayne Logistics","tier":"mid-market"},
+  {"id":"cust-wonka","name":"Wonka Foods","tier":"mid-market"},
+  {"id":"cust-hooli","name":"Hooli","tier":"smb"},
+  {"id":"cust-vehement","name":"Vehement Capital","tier":"smb"},
+  {"id":"cust-soylent","name":"Soylent Labs","tier":"smb"}
+]
