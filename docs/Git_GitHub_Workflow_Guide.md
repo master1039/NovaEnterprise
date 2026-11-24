@@ -12,7 +12,7 @@ NovaEnterprise — Enterprise Knowledge and Decision Intelligence Platform
 | Default integration branch | `development` |
 | Long-lived branches | `development`, `testing`, `master` |
 | Task tracker | `TASK.md` — one `feature/<name>` branch per sub-task |
-| Current state | Phases 1–2 merged; Phase 3 identity and safeguards implemented on its feature branch |
+| Current state | Phases 1, 2, and 4 merged; Phase 3 identity and safeguards implemented on its feature branch |
 
 This guide defines how code moves through NovaEnterprise. Feature work branches
 from `development` and returns through a pull request. `testing` and `master` are
@@ -161,9 +161,9 @@ Choose HTTPS or SSH and complete authentication outside the repository.
 
 ### Current local runtime
 
-Phases 1 through 3 provide the Python workspace, FastAPI shell, relational
+Phases 1 through 4 provide the Python workspace, FastAPI shell, relational
 persistence, deterministic sample data, local authentication and request
-safeguards, offline tests, and quality commands:
+safeguards, offline provider/store adapters, tests, and quality commands:
 
 ```powershell
 python -m venv .venv
@@ -193,8 +193,8 @@ predecessor is already merged into `development`.
 Example next pending task after the Phase 3 branch merges:
 
 ```text
-P4-1 · Provider-agnostic LLM factory and deterministic fake LLM
-Branch: feature/llm-provider-factory
+P5-1 · Markdown, text, and PDF loaders with validated chunking
+Branch: feature/ingest-loaders-chunking
 ```
 
 ### Step 2 — Sync `development`

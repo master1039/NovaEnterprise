@@ -37,3 +37,8 @@ def test_api_prefix_must_start_with_a_slash() -> None:
 def test_log_level_must_be_supported() -> None:
     with pytest.raises(ValidationError):
         Settings(log_level="verbose", _env_file=None)
+
+
+def test_neo4j_credentials_must_be_configured_as_a_pair() -> None:
+    with pytest.raises(ValidationError, match="must be set together"):
+        Settings(neo4j_username="neo4j", _env_file=None)
