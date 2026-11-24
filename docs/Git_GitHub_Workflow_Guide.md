@@ -12,7 +12,7 @@ NovaEnterprise — Enterprise Knowledge and Decision Intelligence Platform
 | Default integration branch | `development` |
 | Long-lived branches | `development`, `testing`, `master` |
 | Task tracker | `TASK.md` — one `feature/<name>` branch per sub-task |
-| Current state | Phases 1, 2, and 4 merged; Phase 3 identity and safeguards implemented on its feature branch |
+| Current state | Phases 1–4 merged; Phases 5 and 6 remain on separate feature branches |
 
 This guide defines how code moves through NovaEnterprise. Feature work branches
 from `development` and returns through a pull request. `testing` and `master` are
@@ -190,11 +190,11 @@ Follow this cycle for every row in `TASK.md`.
 Read the phase's `Depends on` and `Merge order` notes. Confirm every required
 predecessor is already merged into `development`.
 
-Example next pending task after the Phase 3 branch merges:
+Example Phase 6 task implemented on its independent feature branch:
 
 ```text
-P5-1 · Markdown, text, and PDF loaders with validated chunking
-Branch: feature/ingest-loaders-chunking
+P6-1 · Read-only SQL parser, allowlist, and injection rejection
+Branch: feature/sql-readonly-validator
 ```
 
 ### Step 2 — Sync `development`

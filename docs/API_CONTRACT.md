@@ -12,6 +12,9 @@ This document is the shared HTTP agreement for backend and frontend work.
   role enforcement, request correlation, rate limiting, and request auditing.
 - **Implemented internally in Phase 4:** provider-neutral LLM, embedding,
   vector, graph, cache, and session boundaries. Phase 4 adds no public routes.
+- **Implemented internally on the Phase 6 feature branch:** AST-validated,
+  tenant-scoped, parameterized SQL retrieval normalized into shared Evidence.
+  Phase 6 adds no public HTTP routes.
 - **Contracted for later phases:** versioned research, events, documents, graph,
   and enterprise browse APIs. These routes are not implemented yet.
 
