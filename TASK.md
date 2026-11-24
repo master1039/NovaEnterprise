@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phases 1 and 2 are merged and verified. Phase 3 is implemented and verified on the current feature branch; its rows remain `Pending ❌` until the pull request merges, as required by the status rules below.
+> Phases 1 through 4 are merged and verified. Phase 5 is implemented and verified on the current feature branch; its rows remain `Pending ❌` until the pull request merges, as required by the status rules below.
 
 **Branch convention:** `feature/<repo-name>` (one feature branch per sub-task; open each PR against the repository's integration branch)
 **Status:** `Pending ❌` · `Completed ✅`
@@ -47,10 +47,10 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P3-1 · JWT validation, role model, and central `require_role` enforcement | `feature/auth-rbac` | Pending ❌ |
-| P3-2 · Offline demo login, users, and role-scoped tokens | `feature/auth-demo-tokens` | Pending ❌ |
-| P3-3 · Request ID, rate limiting, audit logging, and middleware ordering | `feature/request-guards-middleware` | Pending ❌ |
-| P3-4 · Prompt-injection guardrails, secret scrubbing, and approval service | `feature/security-guardrails-approval` | Pending ❌ |
+| P3-1 · JWT validation, role model, and central `require_role` enforcement | `feature/auth-rbac` | Completed ✅ |
+| P3-2 · Offline demo login, users, and role-scoped tokens | `feature/auth-demo-tokens` | Completed ✅ |
+| P3-3 · Request ID, rate limiting, audit logging, and middleware ordering | `feature/request-guards-middleware` | Completed ✅ |
+| P3-4 · Prompt-injection guardrails, secret scrubbing, and approval service | `feature/security-guardrails-approval` | Completed ✅ |
 
 ---
 
@@ -61,11 +61,11 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P4-1 · Provider-agnostic LLM factory and deterministic fake LLM | `feature/llm-provider-factory` | Pending ❌ |
-| P4-2 · Embedding factory and deterministic fake embeddings | `feature/embedding-provider-factory` | Pending ❌ |
-| P4-3 · Vector-store protocol with memory and Qdrant adapters | `feature/vector-store-adapters` | Pending ❌ |
-| P4-4 · Graph-store protocol with memory and Neo4j adapters | `feature/graph-store-adapters` | Pending ❌ |
-| P4-5 · Cache and session facade with fake and Redis adapters | `feature/cache-redis-adapters` | Pending ❌ |
+| P4-1 · Provider-agnostic LLM factory and deterministic fake LLM | `feature/llm-provider-factory` | Completed ✅ |
+| P4-2 · Embedding factory and deterministic fake embeddings | `feature/embedding-provider-factory` | Completed ✅ |
+| P4-3 · Vector-store protocol with memory and Qdrant adapters | `feature/vector-store-adapters` | Completed ✅ |
+| P4-4 · Graph-store protocol with memory and Neo4j adapters | `feature/graph-store-adapters` | Completed ✅ |
+| P4-5 · Cache and session facade with fake and Redis adapters | `feature/cache-redis-adapters` | Completed ✅ |
 
 ---
 
@@ -280,8 +280,8 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 |-------|------|------:|----------:|
 | 1 | Runtime foundation and contracts | 4 | 4 |
 | 2 | Shared schemas and persistence | 4 | 4 |
-| 3 | Identity, middleware, and safeguards | 4 | 0 |
-| 4 | Provider and storage abstractions | 5 | 0 |
+| 3 | Identity, middleware, and safeguards | 4 | 4 |
+| 4 | Provider and storage abstractions | 5 | 5 |
 | 5 | Document ingestion pipeline | 4 | 0 |
 | 6 | Safe SQL retrieval | 3 | 0 |
 | 7 | Knowledge graph retrieval | 3 | 0 |
@@ -294,7 +294,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 14 | Research and evidence UI | 4 | 0 |
 | 15 | Evaluation and canonical demo | 5 | 0 |
 | 16 | Integrations and delivery | 5 | 0 |
-| **Total** | | **66** | **8** |
+| **Total** | | **66** | **17** |
 
 ---
 

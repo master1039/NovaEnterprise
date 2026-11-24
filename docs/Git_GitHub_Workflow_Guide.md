@@ -12,7 +12,7 @@ NovaEnterprise — Enterprise Knowledge and Decision Intelligence Platform
 | Default integration branch | `development` |
 | Long-lived branches | `development`, `testing`, `master` |
 | Task tracker | `TASK.md` — one `feature/<name>` branch per sub-task |
-| Current state | Phases 1–2 merged; Phase 3 identity and safeguards implemented on its feature branch |
+| Current state | Phases 1 through 4 merged; Phase 5 ingestion implemented on its feature branch |
 
 This guide defines how code moves through NovaEnterprise. Feature work branches
 from `development` and returns through a pull request. `testing` and `master` are
@@ -161,9 +161,10 @@ Choose HTTPS or SSH and complete authentication outside the repository.
 
 ### Current local runtime
 
-Phases 1 through 3 provide the Python workspace, FastAPI shell, relational
+Phases 1 through 5 provide the Python workspace, FastAPI shell, relational
 persistence, deterministic sample data, local authentication and request
-safeguards, offline tests, and quality commands:
+safeguards, offline provider/store adapters, safe document ingestion, tests,
+and quality commands:
 
 ```powershell
 python -m venv .venv
@@ -175,11 +176,12 @@ Copy-Item .env.example .env
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe -m alembic upgrade head
 .\.venv\Scripts\python.exe -m backend.app.services.seed
+.\.venv\Scripts\python.exe -m backend.app.ingestion.command --dry-run
 ```
 
 With GNU Make installed, use `make setup`, `make run`, `make check`,
-`make db-upgrade`, and `make seed`. The frontend and multi-service stack remain
-later-phase work.
+`make db-upgrade`, `make seed`, `make ingest-dry-run`, and `make ingest`. The
+frontend and multi-service stack remain later-phase work.
 
 ## 4. Daily feature workflow
 
@@ -190,11 +192,11 @@ Follow this cycle for every row in `TASK.md`.
 Read the phase's `Depends on` and `Merge order` notes. Confirm every required
 predecessor is already merged into `development`.
 
-Example next pending task after the Phase 3 branch merges:
+Example next pending task after the Phase 5 branch merges:
 
 ```text
-P4-1 · Provider-agnostic LLM factory and deterministic fake LLM
-Branch: feature/llm-provider-factory
+P6-1 · Read-only SQL parser, allowlist, and injection rejection
+Branch: feature/sql-readonly-validator
 ```
 
 ### Step 2 — Sync `development`

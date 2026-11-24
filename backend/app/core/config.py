@@ -36,6 +36,35 @@ class Settings(BaseSettings):
     jwt_ttl_minutes: int = Field(default=60, ge=1, le=1440)
     rate_limit_per_minute: int = Field(default=120, ge=1, le=100_000)
     audit_trail_max_records: int = Field(default=10_000, ge=1, le=1_000_000)
+    llm_provider: Literal[
+        "fake",
+        "openai",
+        "anthropic",
+        "google",
+        "groq",
+        "mistral",
+        "cohere",
+        "deepseek",
+        "azure_openai",
+    ] = "fake"
+    llm_model: str = "fake-v1"
+    embedding_provider: Literal["fake", "openai", "google", "cohere", "mistral", "azure_openai"] = (
+        "fake"
+    )
+    embedding_model: str = "fake-embedding-v1"
+    embedding_dimension: int = Field(default=32, ge=1, le=4096)
+    vector_store: Literal["memory", "qdrant"] = "memory"
+    qdrant_url: str = "http://localhost:6333"
+    qdrant_collection: str = "novaenterprise-documents"
+    qdrant_api_key: str | None = None
+    graph_store: Literal["memory", "neo4j"] = "memory"
+    neo4j_uri: str = "bolt://localhost:7687"
+    neo4j_database: str = "neo4j"
+    neo4j_username: str | None = None
+    neo4j_password: str | None = None
+    cache_backend: Literal["memory", "redis"] = "memory"
+    redis_url: str = "redis://localhost:6379/0"
+    session_ttl_seconds: int = Field(default=3600, ge=1, le=2_592_000)
 
     @field_validator("log_level")
     @classmethod
@@ -54,9 +83,11 @@ class Settings(BaseSettings):
         return normalized
 
     @model_validator(mode="after")
-    def reject_demo_secret_in_production(self) -> "Settings":
+    def validate_environment_credentials(self) -> "Settings":
         if self.app_env == "production" and self.jwt_secret.startswith("local-demo-"):
             raise ValueError("NOVA_JWT_SECRET must be replaced in production")
+        if bool(self.neo4j_username) != bool(self.neo4j_password):
+            raise ValueError("NOVA_NEO4J_USERNAME and NOVA_NEO4J_PASSWORD must be set together")
         return self
 
     @property

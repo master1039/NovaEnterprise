@@ -3,8 +3,9 @@
 ## Repository state
 
 NovaEnterprise is a Python 3.12 enterprise knowledge and decision-intelligence
-platform. Phases 1 through 3 provide the runtime, shared contracts, relational
-persistence, identity, middleware, and safeguard foundations. Treat later-phase
+platform. Phases 1 through 5 provide the runtime, shared contracts, relational
+persistence, identity, middleware, safeguards, and replaceable provider/storage
+foundations. Treat later-phase
 content in `docs/` as target design, not proof that those features already exist.
 
 Current layout:
@@ -18,6 +19,8 @@ Current layout:
 - `backend/app/api/auth.py`: local demo login and authenticated-user endpoint.
 - `backend/app/core/security.py`: JWT validation and central role enforcement.
 - `backend/app/core/guardrails.py`: untrusted-content inspection and secret redaction.
+- `backend/app/core/llm.py`, `embeddings.py`, `cache.py`: provider-neutral AI and cache boundaries.
+- `backend/app/ingestion/`: safe loaders, guarded extraction, indexing pipeline, and CLI.
 - `backend/app/schemas/`: domain enums, seed/read schemas, and normalized evidence.
 - `backend/app/models/`: tenant-aware SQLAlchemy entities.
 - `backend/app/repositories/`: tenant-scoped persistence queries.
@@ -25,6 +28,7 @@ Current layout:
 - `backend/app/services/approval_service.py`: tenant-scoped one-use destructive-action approvals.
 - `database/`: Alembic migrations and PostgreSQL RLS policy artifact.
 - `sample_data/`: canonical enterprise JSON records and Markdown documents.
+- `rag/`: tenant-scoped vector and graph store protocols with memory and optional real adapters.
 - `tests/`: deterministic offline API, unit, migration, repository, and seed tests.
 - `docs/00-problem.md`: problem statement and canonical scenario.
 - `docs/01-prd.md`: product requirements and acceptance criteria.
@@ -51,10 +55,12 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m ruff format --check .
 .\.venv\Scripts\python.exe -m alembic upgrade head
 .\.venv\Scripts\python.exe -m backend.app.services.seed
+.\.venv\Scripts\python.exe -m backend.app.ingestion.command --dry-run
+.\.venv\Scripts\python.exe -m backend.app.ingestion.command
 ```
 
 When GNU Make is installed, `make setup`, `make run`, `make test`, `make lint`,
-`make check`, `make db-upgrade`, and `make seed` wrap the same commands. Use the direct PowerShell equivalents
+`make check`, `make db-upgrade`, `make seed`, `make ingest-dry-run`, and `make ingest` wrap the same commands. Use the direct PowerShell equivalents
 on Windows machines without Make.
 
 ## Working conventions
