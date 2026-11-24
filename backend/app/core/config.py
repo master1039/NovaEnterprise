@@ -27,6 +27,15 @@ class Settings(BaseSettings):
     api_prefix: str = "/api/v1"
     database_url: str = "sqlite:///./data/enterprise.db"
     default_tenant_id: str = "novaenterprise-demo"
+    jwt_secret: str = Field(
+        default="local-demo-secret-change-before-production-32",
+        min_length=32,
+    )
+    jwt_issuer: str = "novaenterprise"
+    jwt_audience: str = "novaenterprise-api"
+    jwt_ttl_minutes: int = Field(default=60, ge=1, le=1440)
+    rate_limit_per_minute: int = Field(default=120, ge=1, le=100_000)
+    audit_trail_max_records: int = Field(default=10_000, ge=1, le=1_000_000)
     llm_provider: Literal[
         "fake",
         "openai",
@@ -74,10 +83,16 @@ class Settings(BaseSettings):
         return normalized
 
     @model_validator(mode="after")
-    def validate_neo4j_credentials(self) -> "Settings":
+    def validate_environment_credentials(self) -> "Settings":
+        if self.app_env == "production" and self.jwt_secret.startswith("local-demo-"):
+            raise ValueError("NOVA_JWT_SECRET must be replaced in production")
         if bool(self.neo4j_username) != bool(self.neo4j_password):
             raise ValueError("NOVA_NEO4J_USERNAME and NOVA_NEO4J_PASSWORD must be set together")
         return self
+
+    @property
+    def demo_auth_enabled(self) -> bool:
+        return self.app_env in {"local", "test"}
 
 
 @lru_cache(maxsize=1)

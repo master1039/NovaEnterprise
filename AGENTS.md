@@ -3,8 +3,9 @@
 ## Repository state
 
 NovaEnterprise is a Python 3.12 enterprise knowledge and decision-intelligence
-platform. Phases 1, 2, and 4 provide the runtime, shared contracts, relational
-persistence, and replaceable provider/storage foundations. Treat later-phase
+platform. Phases 1 through 4 provide the runtime, shared contracts, relational
+persistence, identity, middleware, safeguards, and replaceable provider/storage
+foundations. Treat later-phase
 content in `docs/` as target design, not proof that those features already exist.
 
 Current layout:
@@ -14,11 +15,16 @@ Current layout:
 - `backend/app/main.py`: FastAPI application factory and runtime entry point.
 - `backend/app/api/`: implemented system and liveness routes.
 - `backend/app/core/`: settings, database/session wiring, JSON logging, and safe errors.
+- `backend/app/middleware/`: request correlation, bounded rate limiting, and safe request auditing.
+- `backend/app/api/auth.py`: local demo login and authenticated-user endpoint.
+- `backend/app/core/security.py`: JWT validation and central role enforcement.
+- `backend/app/core/guardrails.py`: untrusted-content inspection and secret redaction.
 - `backend/app/core/llm.py`, `embeddings.py`, `cache.py`: provider-neutral AI and cache boundaries.
 - `backend/app/schemas/`: domain enums, seed/read schemas, and normalized evidence.
 - `backend/app/models/`: tenant-aware SQLAlchemy entities.
 - `backend/app/repositories/`: tenant-scoped persistence queries.
 - `backend/app/services/seed.py`: deterministic, idempotent demo-data loader.
+- `backend/app/services/approval_service.py`: tenant-scoped one-use destructive-action approvals.
 - `database/`: Alembic migrations and PostgreSQL RLS policy artifact.
 - `sample_data/`: canonical enterprise JSON records and Markdown documents.
 - `rag/`: tenant-scoped vector and graph store protocols with memory and optional real adapters.
