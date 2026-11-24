@@ -7,7 +7,9 @@ identity/security boundary with local demo authentication, central roles,
 request correlation, bounded rate limiting and auditing, content guardrails,
 secret redaction, and destructive-action approvals; and provider/storage
 abstractions with deterministic LLM and embedding providers, tenant-scoped
-memory vector and graph stores, and a local cache/session facade.
+memory vector and graph stores, and a local cache/session facade. Phase 5 adds
+validated Markdown, text, and PDF loading; deterministic chunking; guarded
+entity extraction; and repeatable relational/vector/graph indexing.
 
 Qdrant, Neo4j, Redis, and real AI providers are optional adapters and are not
 required by the offline test path. Retrieval workflows, agents, business APIs,
@@ -80,6 +82,24 @@ PowerShell alternative:
 
 The default database is `data/enterprise.db`. Re-running the seed command
 updates the same stable records without duplicating them.
+
+## Validate or ingest sample documents
+
+Inspect the canonical documents without writing any store:
+
+```powershell
+.\.venv\Scripts\python.exe -m backend.app.ingestion.command --dry-run
+```
+
+Run repeatable ingestion with the safe SQLite and in-memory adapter defaults:
+
+```powershell
+.\.venv\Scripts\python.exe -m backend.app.ingestion.command
+```
+
+With Make, use `make ingest-dry-run` or `make ingest`. PDF extraction uses
+`pypdf`; the offline path needs no credentials, network, containers, Qdrant, or
+Neo4j. External adapters remain optional settings.
 
 ## Verify
 

@@ -7,7 +7,7 @@ else
 VENV_PYTHON := $(VENV_DIR)/bin/python
 endif
 
-.PHONY: setup run test lint format format-check check db-upgrade db-downgrade seed clean
+.PHONY: setup run test lint format format-check check db-upgrade db-downgrade seed ingest ingest-dry-run clean
 
 setup:
 	$(PYTHON) -m venv $(VENV_DIR)
@@ -39,6 +39,12 @@ db-downgrade:
 
 seed: db-upgrade
 	$(VENV_PYTHON) -m backend.app.services.seed
+
+ingest: db-upgrade
+	$(VENV_PYTHON) -m backend.app.ingestion.command
+
+ingest-dry-run:
+	$(VENV_PYTHON) -m backend.app.ingestion.command --dry-run
 
 clean:
 	$(PYTHON) -c "import pathlib,shutil; [shutil.rmtree(p, ignore_errors=True) for p in pathlib.Path('.').rglob('__pycache__')]"
