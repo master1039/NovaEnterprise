@@ -12,7 +12,7 @@ NovaEnterprise — Enterprise Knowledge and Decision Intelligence Platform
 | Default integration branch | `development` |
 | Long-lived branches | `development`, `testing`, `master` |
 | Task tracker | `TASK.md` — one `feature/<name>` branch per sub-task |
-| Current state | Phases 1 through 4 merged; Phase 5 ingestion implemented on its feature branch |
+| Current state | Phases 1–5 merged; Phase 6 safe SQL retrieval implemented on its feature branch |
 
 This guide defines how code moves through NovaEnterprise. Feature work branches
 from `development` and returns through a pull request. `testing` and `master` are
@@ -164,7 +164,8 @@ Choose HTTPS or SSH and complete authentication outside the repository.
 Phases 1 through 5 provide the Python workspace, FastAPI shell, relational
 persistence, deterministic sample data, local authentication and request
 safeguards, offline provider/store adapters, safe document ingestion, tests,
-and quality commands:
+and quality commands. The Phase 6 feature branch adds AST-validated,
+tenant-scoped SQL retrieval normalized into shared Evidence:
 
 ```powershell
 python -m venv .venv
@@ -192,7 +193,7 @@ Follow this cycle for every row in `TASK.md`.
 Read the phase's `Depends on` and `Merge order` notes. Confirm every required
 predecessor is already merged into `development`.
 
-Example next pending task after the Phase 5 branch merges:
+Example Phase 6 task implemented on its independent feature branch:
 
 ```text
 P6-1 · Read-only SQL parser, allowlist, and injection rejection

@@ -3,7 +3,9 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phases 1 through 4 are merged and verified. Phase 5 is implemented and verified on the current feature branch; its rows remain `Pending ❌` until the pull request merges, as required by the status rules below.
+> Phases 1 through 5 are merged and verified. Phase 6 is implemented and
+> verified on the current feature branch; its rows remain `Pending ❌` until
+> the pull request merges, as required by the status rules below.
 
 **Branch convention:** `feature/<repo-name>` (one feature branch per sub-task; open each PR against the repository's integration branch)
 **Status:** `Pending ❌` · `Completed ✅`
@@ -77,10 +79,10 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P5-1 · Markdown, text, and PDF loaders with validated chunking | `feature/ingest-loaders-chunking` | Pending ❌ |
-| P5-2 · Entity and relationship extraction with hostile-content flagging | `feature/ingest-entity-extraction` | Pending ❌ |
-| P5-3 · Coordinated DB, vector, and graph indexing pipeline | `feature/ingest-indexing-pipeline` | Pending ❌ |
-| P5-4 · Ingest command, sample documents, and repeatable bootstrap | `feature/ingest-command-bootstrap` | Pending ❌ |
+| P5-1 · Markdown, text, and PDF loaders with validated chunking | `feature/ingest-loaders-chunking` | Completed ✅ |
+| P5-2 · Entity and relationship extraction with hostile-content flagging | `feature/ingest-entity-extraction` | Completed ✅ |
+| P5-3 · Coordinated DB, vector, and graph indexing pipeline | `feature/ingest-indexing-pipeline` | Completed ✅ |
+| P5-4 · Ingest command, sample documents, and repeatable bootstrap | `feature/ingest-command-bootstrap` | Completed ✅ |
 
 ---
 
@@ -282,7 +284,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 2 | Shared schemas and persistence | 4 | 4 |
 | 3 | Identity, middleware, and safeguards | 4 | 4 |
 | 4 | Provider and storage abstractions | 5 | 5 |
-| 5 | Document ingestion pipeline | 4 | 0 |
+| 5 | Document ingestion pipeline | 4 | 4 |
 | 6 | Safe SQL retrieval | 3 | 0 |
 | 7 | Knowledge graph retrieval | 3 | 0 |
 | 8 | Hybrid document retrieval | 3 | 0 |
@@ -294,7 +296,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 14 | Research and evidence UI | 4 | 0 |
 | 15 | Evaluation and canonical demo | 5 | 0 |
 | 16 | Integrations and delivery | 5 | 0 |
-| **Total** | | **66** | **17** |
+| **Total** | | **66** | **21** |
 
 ---
 

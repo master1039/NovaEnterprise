@@ -15,6 +15,9 @@ This document is the shared HTTP agreement for backend and frontend work.
 - **Implemented internally in Phase 5:** validated document loading, chunking,
   guardrail-first extraction, and coordinated relational/vector/graph indexing.
   Phase 5 adds a local command but no public HTTP routes.
+- **Implemented internally on the Phase 6 feature branch:** AST-validated,
+  tenant-scoped, parameterized SQL retrieval normalized into shared Evidence.
+  Phase 6 adds no public HTTP routes.
 - **Contracted for later phases:** versioned research, events, documents, graph,
   and enterprise browse APIs. These routes are not implemented yet.
 
