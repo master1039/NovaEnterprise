@@ -12,6 +12,7 @@ dependencies = [
     "alembic>=1.14.0,<2.0.0",
     "fastapi>=0.115.0,<0.116.0",
     "pydantic-settings>=2.7.0,<3.0.0",
+    "pypdf>=5.1.0,<6.0.0",
     "sqlalchemy>=2.0.36,<3.0.0",
     "uvicorn>=0.34.0,<1.0.0",
 ]
@@ -31,6 +32,7 @@ packages = [
     "backend.app",
     "backend.app.api",
     "backend.app.core",
+    "backend.app.ingestion",
     "backend.app.models",
     "backend.app.middleware",
     "backend.app.repositories",
