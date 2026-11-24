@@ -12,7 +12,7 @@ NovaEnterprise — Enterprise Knowledge and Decision Intelligence Platform
 | Default integration branch | `development` |
 | Long-lived branches | `development`, `testing`, `master` |
 | Task tracker | `TASK.md` — one `feature/<name>` branch per sub-task |
-| Current state | Phases 1–4 merged; Phases 5 and 6 remain on separate feature branches |
+| Current state | Phases 1–5 merged; Phase 6 safe SQL retrieval implemented on its feature branch |
 
 This guide defines how code moves through NovaEnterprise. Feature work branches
 from `development` and returns through a pull request. `testing` and `master` are
@@ -161,9 +161,11 @@ Choose HTTPS or SSH and complete authentication outside the repository.
 
 ### Current local runtime
 
-Phases 1 through 4 provide the Python workspace, FastAPI shell, relational
+Phases 1 through 5 provide the Python workspace, FastAPI shell, relational
 persistence, deterministic sample data, local authentication and request
-safeguards, offline provider/store adapters, tests, and quality commands:
+safeguards, offline provider/store adapters, safe document ingestion, tests,
+and quality commands. The Phase 6 feature branch adds AST-validated,
+tenant-scoped SQL retrieval normalized into shared Evidence:
 
 ```powershell
 python -m venv .venv
@@ -175,11 +177,12 @@ Copy-Item .env.example .env
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe -m alembic upgrade head
 .\.venv\Scripts\python.exe -m backend.app.services.seed
+.\.venv\Scripts\python.exe -m backend.app.ingestion.command --dry-run
 ```
 
 With GNU Make installed, use `make setup`, `make run`, `make check`,
-`make db-upgrade`, and `make seed`. The frontend and multi-service stack remain
-later-phase work.
+`make db-upgrade`, `make seed`, `make ingest-dry-run`, and `make ingest`. The
+frontend and multi-service stack remain later-phase work.
 
 ## 4. Daily feature workflow
 
