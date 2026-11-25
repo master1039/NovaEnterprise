@@ -3,12 +3,13 @@
 ## Repository state
 
 NovaEnterprise is a Python 3.12 enterprise knowledge and decision-intelligence
-platform. Phases 1 through 6 are merged and provide the runtime, shared
+platform. Phases 1 through 7 are merged and provide the runtime, shared
 contracts, relational persistence, identity, middleware, safeguards,
-replaceable provider/storage foundations, and safe SQL retrieval. The Phase 7
-feature branch adds typed enterprise graph seeding, traversal, and graph
-Evidence. Treat later-phase content in `docs/` as target design, not proof that
-those features already exist.
+replaceable provider/storage foundations, safe SQL retrieval, and typed graph
+retrieval. The Phase 8 feature branch adds tenant-scoped semantic and BM25
+document retrieval, reciprocal-rank fusion, safety-aware Evidence, and explicit
+adapter degradation. Treat later-phase content in `docs/` as target design, not
+proof that those features already exist.
 
 Current layout:
 
@@ -30,7 +31,7 @@ Current layout:
 - `backend/app/services/approval_service.py`: tenant-scoped one-use destructive-action approvals.
 - `database/`: Alembic migrations and PostgreSQL RLS policy artifact.
 - `sample_data/`: canonical enterprise JSON records and Markdown documents.
-- `rag/`: tenant-scoped vector/graph adapters, safe SQL, and typed graph retrieval.
+- `rag/`: tenant-scoped adapters plus SQL, graph, and hybrid document retrieval.
 - `tests/`: deterministic offline API, unit, migration, repository, and seed tests.
 - `docs/00-problem.md`: problem statement and canonical scenario.
 - `docs/01-prd.md`: product requirements and acceptance criteria.

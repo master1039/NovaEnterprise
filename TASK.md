@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phases 1 through 6 are merged and verified. Phase 7 is implemented and
+> Phases 1 through 7 are merged and verified. Phase 8 is implemented and
 > verified on the current feature branch; its rows remain `Pending ❌` until
 > the pull request merges, as required by the status rules below.
 
@@ -106,9 +106,9 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P7-1 · Typed graph entities, relationships, and seed mapping | `feature/graph-domain-seeding` | Pending ❌ |
-| P7-2 · Read-only typed traversals that expose parameterized Cypher | `feature/graph-typed-traversals` | Pending ❌ |
-| P7-3 · Customer-impact, ownership, expansion, and degradation tests | `feature/graph-retrieval-tests` | Pending ❌ |
+| P7-1 · Typed graph entities, relationships, and seed mapping | `feature/graph-domain-seeding` | Completed ✅ |
+| P7-2 · Read-only typed traversals that expose parameterized Cypher | `feature/graph-typed-traversals` | Completed ✅ |
+| P7-3 · Customer-impact, ownership, expansion, and degradation tests | `feature/graph-retrieval-tests` | Completed ✅ |
 
 ---
 
@@ -286,7 +286,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 4 | Provider and storage abstractions | 5 | 5 |
 | 5 | Document ingestion pipeline | 4 | 4 |
 | 6 | Safe SQL retrieval | 3 | 3 |
-| 7 | Knowledge graph retrieval | 3 | 0 |
+| 7 | Knowledge graph retrieval | 3 | 3 |
 | 8 | Hybrid document retrieval | 3 | 0 |
 | 9 | Scoped memory | 3 | 0 |
 | 10 | Query analysis and retrieval routing | 4 | 0 |
@@ -296,7 +296,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 14 | Research and evidence UI | 4 | 0 |
 | 15 | Evaluation and canonical demo | 5 | 0 |
 | 16 | Integrations and delivery | 5 | 0 |
-| **Total** | | **66** | **24** |
+| **Total** | | **66** | **27** |
 
 ---
 
