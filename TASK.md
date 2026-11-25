@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phases 1 through 5 are merged and verified. Phase 6 is implemented and
+> Phases 1 through 6 are merged and verified. Phase 7 is implemented and
 > verified on the current feature branch; its rows remain `Pending ❌` until
 > the pull request merges, as required by the status rules below.
 
@@ -93,9 +93,9 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P6-1 · Read-only SQL parser, allowlist, and injection rejection | `feature/sql-readonly-validator` | Pending ❌ |
-| P6-2 · Parameterized SQL templates and evidence-normalizing executor | `feature/sql-retrieval-engine` | Pending ❌ |
-| P6-3 · SQL validator, date-range, and canonical incident tests | `feature/sql-retrieval-tests` | Pending ❌ |
+| P6-1 · Read-only SQL parser, allowlist, and injection rejection | `feature/sql-readonly-validator` | Completed ✅ |
+| P6-2 · Parameterized SQL templates and evidence-normalizing executor | `feature/sql-retrieval-engine` | Completed ✅ |
+| P6-3 · SQL validator, date-range, and canonical incident tests | `feature/sql-retrieval-tests` | Completed ✅ |
 
 ---
 
@@ -285,7 +285,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 3 | Identity, middleware, and safeguards | 4 | 4 |
 | 4 | Provider and storage abstractions | 5 | 5 |
 | 5 | Document ingestion pipeline | 4 | 4 |
-| 6 | Safe SQL retrieval | 3 | 0 |
+| 6 | Safe SQL retrieval | 3 | 3 |
 | 7 | Knowledge graph retrieval | 3 | 0 |
 | 8 | Hybrid document retrieval | 3 | 0 |
 | 9 | Scoped memory | 3 | 0 |
@@ -296,7 +296,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 14 | Research and evidence UI | 4 | 0 |
 | 15 | Evaluation and canonical demo | 5 | 0 |
 | 16 | Integrations and delivery | 5 | 0 |
-| **Total** | | **66** | **21** |
+| **Total** | | **66** | **24** |
 
 ---
 
