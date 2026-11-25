@@ -1,7 +1,7 @@
 # NovaEnterprise
 
 NovaEnterprise is an enterprise knowledge and decision-intelligence platform.
-The repository currently implements five merged phases plus the Phase 6 feature
+The repository currently implements six merged phases plus the Phase 7 feature
 branch: a repeatable Python/FastAPI runtime; shared schemas and tenant-aware
 persistence; an
 identity/security boundary with local demo authentication, central roles,
@@ -12,11 +12,14 @@ memory vector and graph stores, and a local cache/session facade. Phase 5 adds
 validated Markdown, text, and PDF loading; deterministic chunking; guarded
 entity extraction; and repeatable relational/vector/graph indexing.
 
-The current Phase 6 feature branch also adds safe relational retrieval: an
+Phase 6 adds safe relational retrieval: an
 SQLGlot AST validator, strict table/column allowlists, mandatory tenant filters,
 parameterized incident templates, bounded deterministic execution, and
-normalization into shared SQL evidence. This work builds on the Phase 5
-ingestion pipeline already merged into `development`.
+normalization into shared SQL evidence.
+
+The Phase 7 feature branch maps relational enterprise records into a typed,
+tenant-scoped graph and adds parameterized customer-impact, service-ownership,
+and bounded expansion traversals that return shared graph Evidence.
 
 Qdrant, Neo4j, Redis, and real AI providers are optional adapters and are not
 required by the offline test path. Retrieval workflows, agents, business APIs,

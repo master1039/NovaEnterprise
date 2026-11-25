@@ -12,7 +12,7 @@ NovaEnterprise — Enterprise Knowledge and Decision Intelligence Platform
 | Default integration branch | `development` |
 | Long-lived branches | `development`, `testing`, `master` |
 | Task tracker | `TASK.md` — one `feature/<name>` branch per sub-task |
-| Current state | Phases 1–5 merged; Phase 6 safe SQL retrieval implemented on its feature branch |
+| Current state | Phases 1–6 merged; Phase 7 graph retrieval implemented on its feature branch |
 
 This guide defines how code moves through NovaEnterprise. Feature work branches
 from `development` and returns through a pull request. `testing` and `master` are
@@ -161,11 +161,12 @@ Choose HTTPS or SSH and complete authentication outside the repository.
 
 ### Current local runtime
 
-Phases 1 through 5 provide the Python workspace, FastAPI shell, relational
+Phases 1 through 6 provide the Python workspace, FastAPI shell, relational
 persistence, deterministic sample data, local authentication and request
 safeguards, offline provider/store adapters, safe document ingestion, tests,
-and quality commands. The Phase 6 feature branch adds AST-validated,
-tenant-scoped SQL retrieval normalized into shared Evidence:
+quality commands, and AST-validated tenant-scoped SQL retrieval. The Phase 7
+feature branch adds typed graph seeding and bounded, parameterized traversals
+normalized into shared Evidence:
 
 ```powershell
 python -m venv .venv
@@ -193,11 +194,11 @@ Follow this cycle for every row in `TASK.md`.
 Read the phase's `Depends on` and `Merge order` notes. Confirm every required
 predecessor is already merged into `development`.
 
-Example Phase 6 task implemented on its independent feature branch:
+Example Phase 7 task implemented on its independent feature branch:
 
 ```text
-P6-1 · Read-only SQL parser, allowlist, and injection rejection
-Branch: feature/sql-readonly-validator
+P7-1 · Typed graph entities, relationships, and seed mapping
+Branch: feature/graph-domain-seeding
 ```
 
 ### Step 2 — Sync `development`
@@ -223,6 +224,7 @@ Examples from the tracker:
 
 - `feature/domain-evidence-schemas` — P2-1 shared domain contracts
 - `feature/sql-readonly-validator` — P6-1 safe SQL validation
+- `feature/graph-domain-seeding` — P7-1 typed graph seeding
 - `feature/workflow-graph-wiring` — P11-5 LangGraph wiring
 - `feature/frontend-research-progress` — P14-2 research progress UI
 
