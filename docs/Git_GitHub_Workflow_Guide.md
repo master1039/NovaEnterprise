@@ -12,7 +12,7 @@ NovaEnterprise — Enterprise Knowledge and Decision Intelligence Platform
 | Default integration branch | `development` |
 | Long-lived branches | `development`, `testing`, `master` |
 | Task tracker | `TASK.md` — one `feature/<name>` branch per sub-task |
-| Current state | Phases 1–6 merged; Phase 7 graph retrieval implemented on its feature branch |
+| Current state | Phases 1–7 merged; Phase 8 hybrid retrieval implemented on its feature branch |
 
 This guide defines how code moves through NovaEnterprise. Feature work branches
 from `development` and returns through a pull request. `testing` and `master` are
@@ -161,12 +161,12 @@ Choose HTTPS or SSH and complete authentication outside the repository.
 
 ### Current local runtime
 
-Phases 1 through 6 provide the Python workspace, FastAPI shell, relational
+Phases 1 through 7 provide the Python workspace, FastAPI shell, relational
 persistence, deterministic sample data, local authentication and request
 safeguards, offline provider/store adapters, safe document ingestion, tests,
-quality commands, and AST-validated tenant-scoped SQL retrieval. The Phase 7
-feature branch adds typed graph seeding and bounded, parameterized traversals
-normalized into shared Evidence:
+quality commands, AST-validated tenant-scoped SQL retrieval, and typed graph
+retrieval. The Phase 8 feature branch adds semantic and BM25 document search,
+rank fusion, reranking, source-aware Evidence, and explicit degradation:
 
 ```powershell
 python -m venv .venv
@@ -194,11 +194,11 @@ Follow this cycle for every row in `TASK.md`.
 Read the phase's `Depends on` and `Merge order` notes. Confirm every required
 predecessor is already merged into `development`.
 
-Example Phase 7 task implemented on its independent feature branch:
+Example Phase 8 task implemented on its independent feature branch:
 
 ```text
-P7-1 · Typed graph entities, relationships, and seed mapping
-Branch: feature/graph-domain-seeding
+P8-1 · Semantic and BM25 retrieval with source metadata
+Branch: feature/retrieval-vector-bm25
 ```
 
 ### Step 2 — Sync `development`
