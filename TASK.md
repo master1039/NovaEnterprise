@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phases 1 through 8 are merged and verified. Phase 9 is implemented and
+> Phases 1 through 9 are merged and verified. Phase 10 is implemented and
 > verified on the current feature branch; its rows remain `Pending ❌` until
 > the pull request merges, as required by the status rules below.
 
@@ -132,9 +132,9 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P9-1 · Conversation, user, organizational, and workflow memory schemas | `feature/memory-scope-schemas` | Pending ❌ |
-| P9-2 · Short-term and durable memory adapters with tenant/user boundaries | `feature/memory-adapters` | Pending ❌ |
-| P9-3 · Recall, record, clear, provenance, and isolation service tests | `feature/memory-service-tests` | Pending ❌ |
+| P9-1 · Conversation, user, organizational, and workflow memory schemas | `feature/memory-scope-schemas` | Completed ✅ |
+| P9-2 · Short-term and durable memory adapters with tenant/user boundaries | `feature/memory-adapters` | Completed ✅ |
+| P9-3 · Recall, record, clear, provenance, and isolation service tests | `feature/memory-service-tests` | Completed ✅ |
 
 ---
 
@@ -288,7 +288,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 6 | Safe SQL retrieval | 3 | 3 |
 | 7 | Knowledge graph retrieval | 3 | 3 |
 | 8 | Hybrid document retrieval | 3 | 3 |
-| 9 | Scoped memory | 3 | 0 |
+| 9 | Scoped memory | 3 | 3 |
 | 10 | Query analysis and retrieval routing | 4 | 0 |
 | 11 | Evidence, correction, and answer workflow | 5 | 0 |
 | 12 | Backend APIs and observability | 6 | 0 |
@@ -296,7 +296,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 14 | Research and evidence UI | 4 | 0 |
 | 15 | Evaluation and canonical demo | 5 | 0 |
 | 16 | Integrations and delivery | 5 | 0 |
-| **Total** | | **66** | **30** |
+| **Total** | | **66** | **33** |
 
 ---
 

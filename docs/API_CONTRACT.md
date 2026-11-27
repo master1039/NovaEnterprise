@@ -25,9 +25,12 @@ This document is the shared HTTP agreement for backend and frontend work.
   semantic and BM25 document retrieval, reciprocal-rank fusion, deterministic
   reranking, and safety-aware document Evidence. Phase 8 adds no public HTTP
   routes.
-- **Implemented internally on the Phase 9 feature branch:** four isolated
+- **Implemented internally in Phase 9:** four isolated
   memory scopes with short-term cache and durable SQL adapters, provenance, and
   record/recall/clear operations. Phase 9 adds no public HTTP routes.
+- **Implemented internally on the Phase 10 feature branch:** typed research
+  state, deterministic query analysis, bounded decomposition, and retrieval
+  routing plans. Phase 10 adds no public HTTP routes or retrieval execution.
 - **Contracted for later phases:** versioned research, events, documents, graph,
   and enterprise browse APIs. These routes are not implemented yet.
 
