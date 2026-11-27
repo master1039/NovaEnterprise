@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phases 1 through 9 are merged and verified. Phase 10 is implemented and
+> Phases 1 through 10 are merged and verified. Phase 11 is implemented and
 > verified on the current feature branch; its rows remain `Pending ❌` until
 > the pull request merges, as required by the status rules below.
 
@@ -145,10 +145,10 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P10-1 · `ResearchState`, graph node contracts, and deterministic routing rules | `feature/workflow-state-rules` | Pending ❌ |
-| P10-2 · Intent, entity, time-range, and complexity analysis nodes | `feature/workflow-query-analysis` | Pending ❌ |
-| P10-3 · Bounded sub-question decomposition | `feature/workflow-decomposition` | Pending ❌ |
-| P10-4 · Vector, SQL, graph, and hybrid routing with shape tests | `feature/workflow-retrieval-routing` | Pending ❌ |
+| P10-1 · `ResearchState`, graph node contracts, and deterministic routing rules | `feature/workflow-state-rules` | Completed ✅ |
+| P10-2 · Intent, entity, time-range, and complexity analysis nodes | `feature/workflow-query-analysis` | Completed ✅ |
+| P10-3 · Bounded sub-question decomposition | `feature/workflow-decomposition` | Completed ✅ |
+| P10-4 · Vector, SQL, graph, and hybrid routing with shape tests | `feature/workflow-retrieval-routing` | Completed ✅ |
 
 ---
 
@@ -289,14 +289,14 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 7 | Knowledge graph retrieval | 3 | 3 |
 | 8 | Hybrid document retrieval | 3 | 3 |
 | 9 | Scoped memory | 3 | 3 |
-| 10 | Query analysis and retrieval routing | 4 | 0 |
+| 10 | Query analysis and retrieval routing | 4 | 4 |
 | 11 | Evidence, correction, and answer workflow | 5 | 0 |
 | 12 | Backend APIs and observability | 6 | 0 |
 | 13 | Frontend shell and browse experience | 4 | 0 |
 | 14 | Research and evidence UI | 4 | 0 |
 | 15 | Evaluation and canonical demo | 5 | 0 |
 | 16 | Integrations and delivery | 5 | 0 |
-| **Total** | | **66** | **33** |
+| **Total** | | **66** | **37** |
 
 ---
 
