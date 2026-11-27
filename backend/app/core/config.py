@@ -65,6 +65,7 @@ class Settings(BaseSettings):
     cache_backend: Literal["memory", "redis"] = "memory"
     redis_url: str = "redis://localhost:6379/0"
     session_ttl_seconds: int = Field(default=3600, ge=1, le=2_592_000)
+    max_subquestions: int = Field(default=4, ge=1, le=8)
 
     @field_validator("log_level")
     @classmethod

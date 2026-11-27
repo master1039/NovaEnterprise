@@ -1,7 +1,7 @@
 # NovaEnterprise
 
 NovaEnterprise is an enterprise knowledge and decision-intelligence platform.
-The repository currently implements eight merged phases plus the Phase 9
+The repository currently implements nine merged phases plus the Phase 10
 feature branch: a repeatable Python/FastAPI runtime; shared schemas and tenant-aware
 persistence; an
 identity/security boundary with local demo authentication, central roles,
@@ -26,14 +26,20 @@ combines semantic vector search with deterministic BM25, uses reciprocal-rank
 fusion and reranking, removes duplicate chunks, preserves citation metadata,
 and returns truthful partial or degraded outcomes when adapters fail.
 
-The Phase 9 feature branch adds four isolated memory scopes. Conversation and
+Phase 9 adds four isolated memory scopes. Conversation and
 workflow memory use the expiring cache boundary; user and organizational memory
 use tenant-scoped durable SQL storage. Record, recall, and clear operations keep
 provenance, redact secrets, and report adapter failures without inventing data.
 
+The Phase 10 feature branch adds typed research state and inspectable workflow
+nodes for intent, entity, time-range, and complexity analysis. It decomposes
+complex questions into a configured maximum of sub-questions and routes each
+one deterministically to vector, SQL, graph, or hybrid retrieval.
+
 Qdrant, Neo4j, Redis, and real AI providers are optional adapters and are not
-required by the offline test path. Retrieval workflows, agents, business APIs,
-the frontend, and containers described in `docs/` remain later-phase targets.
+required by the offline test path. Evidence and answer workflows, business
+APIs, the frontend, and containers described in `docs/` remain later-phase
+targets.
 
 ## Provider defaults
 
@@ -141,9 +147,10 @@ database server.
 
 Phase 6 SQL retrieval is exercised by `tests/unit/test_sql_retrieval.py`. Phase
 7 graph retrieval is covered by `tests/unit/test_graph_retrieval.py`, and Phase
-8 hybrid retrieval by `tests/unit/test_hybrid_retrieval.py`, and Phase 9 scoped
-memory by `tests/unit/test_memory_service.py`. All use offline adapters and
-never execute destructive SQL.
+8 hybrid retrieval by `tests/unit/test_hybrid_retrieval.py`, Phase 9 scoped
+memory by `tests/unit/test_memory_service.py`, and Phase 10 routing by
+`tests/unit/test_query_routing.py`. All use offline adapters and never execute
+destructive SQL.
 
 ## Project guidance
 
