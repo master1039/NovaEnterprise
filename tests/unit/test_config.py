@@ -14,6 +14,8 @@ def test_settings_have_safe_local_defaults() -> None:
     assert settings.debug is False
     assert settings.api_prefix == "/api/v1"
     assert settings.log_level == "WARNING"
+    assert settings.max_subquestions == 4
+    assert settings.max_corrective_rounds == 1
 
 
 def test_settings_read_environment_values(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -42,3 +44,9 @@ def test_log_level_must_be_supported() -> None:
 def test_neo4j_credentials_must_be_configured_as_a_pair() -> None:
     with pytest.raises(ValidationError, match="must be set together"):
         Settings(neo4j_username="neo4j", _env_file=None)
+
+
+@pytest.mark.parametrize("value", [-1, 4])
+def test_corrective_rounds_are_strictly_bounded(value: int) -> None:
+    with pytest.raises(ValidationError):
+        Settings(max_corrective_rounds=value, _env_file=None)

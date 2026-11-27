@@ -28,9 +28,13 @@ This document is the shared HTTP agreement for backend and frontend work.
 - **Implemented internally in Phase 9:** four isolated
   memory scopes with short-term cache and durable SQL adapters, provenance, and
   record/recall/clear operations. Phase 9 adds no public HTTP routes.
-- **Implemented internally on the Phase 10 feature branch:** typed research
+- **Implemented internally in Phase 10:** typed research
   state, deterministic query analysis, bounded decomposition, and retrieval
   routing plans. Phase 10 adds no public HTTP routes or retrieval execution.
+- **Implemented internally on the Phase 11 feature branch:** checkpointed
+  LangGraph orchestration, normalized Evidence collection, bounded corrective
+  retrieval, claim verification, answer synthesis, and citation validation.
+  Phase 11 adds no public HTTP routes.
 - **Contracted for later phases:** versioned research, events, documents, graph,
   and enterprise browse APIs. These routes are not implemented yet.
 
