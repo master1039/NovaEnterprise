@@ -21,10 +21,13 @@ This document is the shared HTTP agreement for backend and frontend work.
 - **Implemented internally in Phase 7:** deterministic
   enterprise graph seeding and typed, parameterized traversals normalized into
   graph Evidence. Phase 7 adds no public HTTP routes.
-- **Implemented internally on the Phase 8 feature branch:** tenant-scoped
+- **Implemented internally in Phase 8:** tenant-scoped
   semantic and BM25 document retrieval, reciprocal-rank fusion, deterministic
   reranking, and safety-aware document Evidence. Phase 8 adds no public HTTP
   routes.
+- **Implemented internally on the Phase 9 feature branch:** four isolated
+  memory scopes with short-term cache and durable SQL adapters, provenance, and
+  record/recall/clear operations. Phase 9 adds no public HTTP routes.
 - **Contracted for later phases:** versioned research, events, documents, graph,
   and enterprise browse APIs. These routes are not implemented yet.
 

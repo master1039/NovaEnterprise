@@ -1,7 +1,7 @@
 # NovaEnterprise
 
 NovaEnterprise is an enterprise knowledge and decision-intelligence platform.
-The repository currently implements seven merged phases plus the Phase 8
+The repository currently implements eight merged phases plus the Phase 9
 feature branch: a repeatable Python/FastAPI runtime; shared schemas and tenant-aware
 persistence; an
 identity/security boundary with local demo authentication, central roles,
@@ -21,10 +21,15 @@ Phase 7 maps relational enterprise records into a typed,
 tenant-scoped graph and adds parameterized customer-impact, service-ownership,
 and bounded expansion traversals that return shared graph Evidence.
 
-The Phase 8 feature branch adds tenant-scoped hybrid document retrieval. It
+Phase 8 adds tenant-scoped hybrid document retrieval. It
 combines semantic vector search with deterministic BM25, uses reciprocal-rank
 fusion and reranking, removes duplicate chunks, preserves citation metadata,
 and returns truthful partial or degraded outcomes when adapters fail.
+
+The Phase 9 feature branch adds four isolated memory scopes. Conversation and
+workflow memory use the expiring cache boundary; user and organizational memory
+use tenant-scoped durable SQL storage. Record, recall, and clear operations keep
+provenance, redact secrets, and report adapter failures without inventing data.
 
 Qdrant, Neo4j, Redis, and real AI providers are optional adapters and are not
 required by the offline test path. Retrieval workflows, agents, business APIs,
@@ -136,8 +141,9 @@ database server.
 
 Phase 6 SQL retrieval is exercised by `tests/unit/test_sql_retrieval.py`. Phase
 7 graph retrieval is covered by `tests/unit/test_graph_retrieval.py`, and Phase
-8 hybrid retrieval by `tests/unit/test_hybrid_retrieval.py`. All use offline
-adapters and never execute destructive SQL.
+8 hybrid retrieval by `tests/unit/test_hybrid_retrieval.py`, and Phase 9 scoped
+memory by `tests/unit/test_memory_service.py`. All use offline adapters and
+never execute destructive SQL.
 
 ## Project guidance
 

@@ -39,6 +39,7 @@ packages = [
     "backend.app.repositories",
     "backend.app.schemas",
     "backend.app.services",
+    "memory",
     "rag",
 ]
 

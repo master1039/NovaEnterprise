@@ -21,6 +21,7 @@ EXPECTED_TABLES = {
     "organizational_memory",
     "projects",
     "research_sessions",
+    "scoped_memory",
     "services",
     "teams",
     "tickets",
@@ -36,7 +37,11 @@ def test_initial_migration_upgrades_and_downgrades(tmp_path: Path, monkeypatch) 
     config = Config("alembic.ini")
 
     command.upgrade(config, "head")
-    assert set(inspect(create_engine(url)).get_table_names()) == EXPECTED_TABLES
+    inspector = inspect(create_engine(url))
+    assert set(inspector.get_table_names()) == EXPECTED_TABLES
+    assert "ck_scoped_memory_user_scope_context" in {
+        constraint["name"] for constraint in inspector.get_check_constraints("scoped_memory")
+    }
 
     command.downgrade(config, "base")
     assert inspect(create_engine(url)).get_table_names() == ["alembic_version"]
@@ -48,5 +53,5 @@ def test_rls_file_is_explicitly_postgresql_and_tenant_scoped() -> None:
     assert "SQLite local mode does not enforce RLS" in sql
     assert "ENABLE ROW LEVEL SECURITY" in sql
     assert "current_setting(''app.tenant_id''" in sql
-    for table in ("customers", "documents", "research_sessions", "audit_logs"):
+    for table in ("customers", "documents", "scoped_memory", "research_sessions", "audit_logs"):
         assert f"'{table}'" in sql
