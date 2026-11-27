@@ -3,7 +3,7 @@
 > Dependency-ordered implementation checklist for GitHub-visible progress.
 > Sources: `docs/00-problem.md` · `docs/01-prd.md` · `docs/02-hld.md` · `CLAUDE.md`
 >
-> Phases 1 through 7 are merged and verified. Phase 8 is implemented and
+> Phases 1 through 8 are merged and verified. Phase 9 is implemented and
 > verified on the current feature branch; its rows remain `Pending ❌` until
 > the pull request merges, as required by the status rules below.
 
@@ -119,9 +119,9 @@ Sub-tasks in the same phase may run in parallel only when the merge-order note p
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P8-1 · Semantic and BM25 retrieval with source metadata | `feature/retrieval-vector-bm25` | Pending ❌ |
-| P8-2 · Reciprocal-rank fusion, reranking, deduplication, and cutoffs | `feature/retrieval-fusion-rerank` | Pending ❌ |
-| P8-3 · Hybrid retrieval relevance and hostile-document tests | `feature/retrieval-hybrid-tests` | Pending ❌ |
+| P8-1 · Semantic and BM25 retrieval with source metadata | `feature/retrieval-vector-bm25` | Completed ✅ |
+| P8-2 · Reciprocal-rank fusion, reranking, deduplication, and cutoffs | `feature/retrieval-fusion-rerank` | Completed ✅ |
+| P8-3 · Hybrid retrieval relevance and hostile-document tests | `feature/retrieval-hybrid-tests` | Completed ✅ |
 
 ---
 
@@ -287,7 +287,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 5 | Document ingestion pipeline | 4 | 4 |
 | 6 | Safe SQL retrieval | 3 | 3 |
 | 7 | Knowledge graph retrieval | 3 | 3 |
-| 8 | Hybrid document retrieval | 3 | 0 |
+| 8 | Hybrid document retrieval | 3 | 3 |
 | 9 | Scoped memory | 3 | 0 |
 | 10 | Query analysis and retrieval routing | 4 | 0 |
 | 11 | Evidence, correction, and answer workflow | 5 | 0 |
@@ -296,7 +296,7 @@ Phases 3, 4, 6, 7, 9, and most of Phase 10 can proceed in parallel after their s
 | 14 | Research and evidence UI | 4 | 0 |
 | 15 | Evaluation and canonical demo | 5 | 0 |
 | 16 | Integrations and delivery | 5 | 0 |
-| **Total** | | **66** | **27** |
+| **Total** | | **66** | **30** |
 
 ---
 

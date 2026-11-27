@@ -7,7 +7,7 @@ BEGIN
   FOREACH table_name IN ARRAY ARRAY[
     'teams','employees','services','customers','incidents','incident_customers',
     'decisions','projects','tickets','documents','document_chunks',
-    'organizational_memory','research_sessions','workflow_events','audit_logs'
+    'organizational_memory','scoped_memory','research_sessions','workflow_events','audit_logs'
   ] LOOP
     EXECUTE format('ALTER TABLE %I ENABLE ROW LEVEL SECURITY', table_name);
     EXECUTE format(

@@ -8,6 +8,7 @@ from typing import Any
 from sqlalchemy import (
     JSON,
     Boolean,
+    CheckConstraint,
     Column,
     DateTime,
     Enum,
@@ -160,6 +161,25 @@ class OrganizationalMemory(TenantMixin, TimestampMixin, Base):
     key: Mapped[str] = mapped_column(String(160), nullable=False)
     value: Mapped[str] = mapped_column(Text, nullable=False)
     source: Mapped[str] = mapped_column(String(240), nullable=False)
+    metadata_json: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict, nullable=False)
+
+
+class ScopedMemory(TenantMixin, TimestampMixin, Base):
+    __tablename__ = "scoped_memory"
+    __table_args__ = (
+        CheckConstraint(
+            "scope = 'user' AND user_id IS NOT NULL AND session_id IS NULL",
+            name="user_scope_context",
+        ),
+    )
+    id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    scope: Mapped[str] = mapped_column(String(24), index=True, nullable=False)
+    user_id: Mapped[str | None] = mapped_column(String(64), index=True)
+    session_id: Mapped[str | None] = mapped_column(String(64), index=True)
+    key: Mapped[str] = mapped_column(String(160), nullable=False)
+    value: Mapped[str] = mapped_column(Text, nullable=False)
+    source: Mapped[str] = mapped_column(String(240), nullable=False)
+    metadata_json: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict, nullable=False)
 
 
 class ResearchSession(TenantMixin, TimestampMixin, Base):
